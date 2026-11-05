@@ -31,7 +31,7 @@
                                 <td class="whitespace-nowrap px-6 py-4">{{ $index + 1 }}</td>
                                 <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">{{ $student['nis'] }}</td>
                                 <td class="px-6 py-4">{{ $student['name'] }}</td>
-                                <td class="px-6 py-4">{{ $student['classroom'] }}</td>
+                                <td class="px-6 py-4">{{ $student->classroom?->name ?? '-'}}</td>
                                 <td class="px-6 py-4">
                                     {{ $student['address'] }}
                                 </td>

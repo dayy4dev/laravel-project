@@ -19,14 +19,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+                'password' => bcrypt('password'),
+            ]
+        );
 
         // $this->call(ClassroomSeeder::class);
 
-        Student::factory(15)->create(); // membuat 15 data student baru
-        Classroom::factory(10)->create(); // membuat 10 data classroom baru
+        // Student::factory(15)->create(); // membuat 15 data student baru
+        // Classroom::factory(10)->create(); // membuat 10 data classroom baru
+        //
+        Classroom::factory(14)
+            ->hasStudents(5) //setiap kelas punya 5 siswa
+            ->create();
     }
 }
