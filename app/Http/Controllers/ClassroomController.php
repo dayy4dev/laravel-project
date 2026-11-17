@@ -11,6 +11,6 @@ class ClassroomController extends Controller
     {
         $classroom = Classroom::with('students')->get();
 
-        return view('admin.classroom', ['title' => 'Classroom', 'classroom' => $classroom]);
+        return view('admin.classroom.index', ['title' => 'Classroom', 'classroom' => $classroom]);
     }
 }

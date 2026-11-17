@@ -2,14 +2,14 @@
     <section class="mx-auto max-w-screen-xl">
         <div class="mb-6 flex items-center justify-between gap-4">
             <div>
-                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Students</h1>
-                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Daftar siswa yang terdaftar.</p>
+                <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Teachers</h1>
+                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Daftar guru dan mata pelajaran yang diampu.</p>
             </div>
             <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800">
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
-                Tambah Student
+                Tambah Teacher
             </button>
         </div>
 
@@ -19,24 +19,26 @@
                     <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-300">
                         <tr>
                             <th scope="col" class="px-6 py-3">No</th>
-                            <th scope="col" class="px-6 py-3">NIS</th>
+                            <th scope="col" class="px-6 py-3">NIY</th>
                             <th scope="col" class="px-6 py-3">Name</th>
-                            <th scope="col" class="px-6 py-3">Classroom</th>
-                            <th scope="col" class="px-6 py-3">Address</th>
+                            <th scope="col" class="px-6 py-3">Subject</th>
+                            <th scope="col" class="px-6 py-3">Start Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($students as $index => $student)
+                        @forelse ($teachers as $index => $teacher)
                             <tr class="border-b last:border-b-0 dark:border-gray-700">
                                 <td class="whitespace-nowrap px-6 py-4">{{ $index + 1 }}</td>
-                                <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">{{ $student['nis'] }}</td>
-                                <td class="px-6 py-4">{{ $student['name'] }}</td>
-                                <td class="px-6 py-4">{{ $student->classroom?->name ?? '-'}}</td>
-                                <td class="px-6 py-4">
-                                    {{ $student['address'] }}
-                                </td>
+                                <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">{{ $teacher->niy }}</td>
+                                <td class="px-6 py-4">{{ $teacher->name }}</td>
+                                <td class="px-6 py-4">{{ $teacher->subject?->name ?? '-' }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ $teacher->start_date?->format('d M Y') ?? '-' }}</td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="5" class="px-6 py-6 text-center">Belum ada data teacher.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

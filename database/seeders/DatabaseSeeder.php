@@ -33,7 +33,12 @@ class DatabaseSeeder extends Seeder
         // Classroom::factory(10)->create(); // membuat 10 data classroom baru
         //
         Classroom::factory(14)
-            ->hasStudents(5) //setiap kelas punya 5 siswa
+            ->hasStudents(5) // setiap kelas punya 5 siswa
             ->create();
+
+        $this->call([
+            SubjectSeeder::class,
+            TeacherSeeder::class,
+        ]);
     }
 }
