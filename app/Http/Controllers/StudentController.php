@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Classroom;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class StudentController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         $students = Student::all();
         $classrooms = Classroom::all();
@@ -24,7 +23,7 @@ class StudentController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'nis' => 'required|string|unique:students,nis',
+            'nis' => 'required|numeric|unique:students,nis',
             'classroom_id' => 'required|exists:classrooms,id',
             'address' => 'required|string',
         ], [
@@ -35,9 +34,9 @@ class StudentController extends Controller
             'classroom_id.exists' => 'Kelas tidak ditemukan',
             'address.required' => 'Alamat wajib diisi',
         ]);
-        
+
         Student::create($validated);
-        
+
         return redirect()->route('admin.students')->with('success', 'Siswa berhasil ditambahkan');
     }
 }

@@ -36,4 +36,10 @@ Route::get('/admin/teachers', [TeacherController::class, 'index'])->name('admin.
 
 Route::get('/admin/subjects', [SubjectController::class, 'index'])->name('admin.subjects');
 
+Route::post('/classroom', [ClassroomController::class, 'store'])->name('admin.classroom.store');
+
+Route::post('/teacher', [TeacherController::class, 'store'])->name('admin.teachers.store');
+
+Route::post('/subject', [SubjectController::class, 'store'])->name('admin.subjects.store');
+
 Route::post('/student', [StudentController::class, 'store'])->name('admin.students.store');

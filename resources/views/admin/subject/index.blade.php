@@ -5,7 +5,10 @@
                 <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Subjects</h1>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Daftar mata pelajaran dan guru pengampunya.</p>
             </div>
-            <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800">
+            <button type="button"
+                data-modal-target="create-subject-modal"
+                data-modal-toggle="create-subject-modal"
+                class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800">
                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
@@ -40,4 +43,8 @@
             </div>
         </div>
     </section>
+
+    <x-admin.create-modal id="create-subject-modal" title="Tambah Subject" :action="route('admin.subjects.store')">
+        @include('admin.subject.create')
+    </x-admin.create-modal>
 </x-admin.layout>

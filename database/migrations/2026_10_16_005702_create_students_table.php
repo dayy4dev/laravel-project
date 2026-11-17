@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('nis');
-            $table->string('classroom_id')->constrained(table: 'classrooms', indexName: 'student_classroom_id');
+            $table->foreignId('classroom_id')->constrained()->cascadeOnDelete();
             $table->text('address');
             $table->timestamps();
         });

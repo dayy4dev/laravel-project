@@ -21,6 +21,12 @@
         <x-admin.sidebar />
 
         <main class="p-4 md:ml-64 h-auto pt-20">
+            @if (session('success'))
+                <div class="mb-4 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800 dark:border-green-800 dark:bg-gray-800 dark:text-green-400">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             {{-- $slot adalah variable untuk mengambil data dari pengirim --}}
             {{ $slot }}
         </main>
