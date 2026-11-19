@@ -48,27 +48,27 @@
                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>'
             />
             <x-admin.menu-item
-              :href="route('admin.students')"
+              :href="route('admin.students.index')"
                 label="Students"
                 icon='
                 <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>'
             />
             <x-admin.menu-item
-              :href="route('admin.classroom')"
+              :href="route('admin.classroom.index')"
                 label="Classroom"
                 icon='
                 <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>'
             />
             <x-admin.menu-item
-              :href="route('admin.teachers')"
+              :href="route('admin.teachers.index')"
                 label="Teachers"
                 icon='
                 <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>'
             />
             <x-admin.menu-item
-              :href="route('admin.subjects')"
+              :href="route('admin.subjects.index')"
                 label="Subjects"
                 icon='
                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>'

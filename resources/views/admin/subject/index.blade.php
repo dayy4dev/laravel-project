@@ -44,7 +44,5 @@
         </div>
     </section>
 
-    <x-admin.create-modal id="create-subject-modal" title="Tambah Subject" :action="route('admin.subjects.store')">
-        @include('admin.subject.create')
-    </x-admin.create-modal>
+    @include('admin.subject.create')
 </x-admin.layout>

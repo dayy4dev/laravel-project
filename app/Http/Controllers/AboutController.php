@@ -8,11 +8,15 @@ class AboutController extends Controller
 {
     public function index(): View
     {
+        $title = 'About';
+        $nama  = 'Muhammad Dafi Ristiansyah';
+        $hobby = 'Playing video games';
+        $repository = "dayy4dev";
         return view('admin.about', [
-            'title' => 'About Me!',
-            'name' => 'Muhammad Dafi Ristiansyah',
-            'hobby' => 'Playing video games',
-            'github' => 'Dayy4dev'
+            'title' => $title,
+            'name' => $nama,
+            'hobby' => $hobby,
+            'github' => $repository
         ]);
     }
 }

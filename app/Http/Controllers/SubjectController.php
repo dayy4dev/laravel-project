@@ -25,6 +25,6 @@ class SubjectController extends Controller
 
         Subject::create($validated);
 
-        return redirect()->route('admin.subjects')->with('success', 'Mata pelajaran berhasil ditambahkan');
+        return redirect()->route('admin.subjects.index')->with('success', 'Mata pelajaran berhasil ditambahkan');
     }
 }

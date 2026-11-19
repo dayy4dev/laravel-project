@@ -38,6 +38,6 @@ class TeacherController extends Controller
 
         Teacher::create($validated);
 
-        return redirect()->route('admin.teachers')->with('success', 'Guru berhasil ditambahkan');
+        return redirect()->route('admin.teachers.index')->with('success', 'Guru berhasil ditambahkan');
     }
 }

@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($students as $index => $student)
+                        @forelse ($students as $index => $student)
                             <tr class="border-b last:border-b-0 dark:border-gray-700">
                                 <td class="whitespace-nowrap px-6 py-4">{{ $index + 1 }}</td>
                                 <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">{{ $student['nis'] }}</td>
@@ -39,14 +39,16 @@
                                     {{ $student['address'] }}
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="5" class="px-6 py-6 text-center">Belum ada data student.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <x-admin.create-modal id="create-student-modal" title="Tambah Student" :action="route('admin.students.store')">
-        @include('admin.student.create')
-    </x-admin.create-modal>
+    @include('admin.student.create')
 </x-admin.layout>

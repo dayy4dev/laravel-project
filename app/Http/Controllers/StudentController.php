@@ -23,12 +23,13 @@ class StudentController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'nis' => 'required|numeric|unique:students,nis',
+            'nis' => 'required|digits_between:1,20|unique:students,nis',
             'classroom_id' => 'required|exists:classrooms,id',
             'address' => 'required|string',
         ], [
             'name.required' => 'Nama siswa wajib diisi',
             'nis.required' => 'NIS wajib diisi',
+            'nis.digits_between' => 'NIS harus berupa angka positif',
             'nis.unique' => 'NIS sudah terdaftar',
             'classroom_id.required' => 'Kelas wajib diisi',
             'classroom_id.exists' => 'Kelas tidak ditemukan',
@@ -37,6 +38,6 @@ class StudentController extends Controller
 
         Student::create($validated);
 
-        return redirect()->route('admin.students')->with('success', 'Siswa berhasil ditambahkan');
+        return redirect()->route('admin.students.index')->with('success', 'Siswa berhasil ditambahkan');
     }
 }

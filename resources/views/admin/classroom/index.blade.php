@@ -46,7 +46,5 @@
         </div>
     </section>
 
-    <x-admin.create-modal id="create-classroom-modal" title="Tambah Classroom" :action="route('admin.classroom.store')">
-        @include('admin.classroom.create')
-    </x-admin.create-modal>
+    @include('admin.classroom.create')
 </x-admin.layout>

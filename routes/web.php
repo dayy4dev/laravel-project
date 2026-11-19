@@ -28,18 +28,26 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adm
 
 Route::get('/admin/about', [AboutController::class, 'index'])->name('admin.about');
 
-Route::get('/admin/students', [StudentController::class, 'index'])->name('admin.students');
+Route::get('/admin/students', [StudentController::class, 'index'])->name('admin.students.index');
 
-Route::get('/admin/classroom', [ClassroomController::class, 'index'])->name('admin.classroom');
+Route::get('/admin/classroom', [ClassroomController::class, 'index'])->name('admin.classroom.index');
 
-Route::get('/admin/teachers', [TeacherController::class, 'index'])->name('admin.teachers');
+Route::get('/admin/teachers', [TeacherController::class, 'index'])->name('admin.teachers.index');
 
-Route::get('/admin/subjects', [SubjectController::class, 'index'])->name('admin.subjects');
+Route::get('/admin/subjects', [SubjectController::class, 'index'])->name('admin.subjects.index');
 
-Route::post('/classroom', [ClassroomController::class, 'store'])->name('admin.classroom.store');
+Route::post('/classroom/store', [ClassroomController::class, 'store'])->name('admin.classroom.store');
 
-Route::post('/teacher', [TeacherController::class, 'store'])->name('admin.teachers.store');
+Route::post('/teacher/store', [TeacherController::class, 'store'])->name('admin.teachers.store');
 
-Route::post('/subject', [SubjectController::class, 'store'])->name('admin.subjects.store');
+Route::post('/subject/store', [SubjectController::class, 'store'])->name('admin.subjects.store');
 
-Route::post('/student', [StudentController::class, 'store'])->name('admin.students.store');
+Route::post('/student/store', [StudentController::class, 'store'])->name('admin.students.store');
+
+Route::get('/admin/students/create', [StudentController::class, 'create'])->name('admin.students.create');
+
+Route::get('/admin/classroom/create', [ClassroomController::class, 'create'])->name('admin.classroom.create');
+
+Route::get('/admin/teachers/create', [TeacherController::class, 'create'])->name('admin.teachers.create');
+
+Route::get('/admin/subjects/create', [SubjectController::class, 'create'])->name('admin.subjects.create');

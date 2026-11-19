@@ -26,6 +26,6 @@ class ClassroomController extends Controller
 
         Classroom::create($validated);
 
-        return redirect()->route('admin.classroom')->with('success', 'Kelas berhasil ditambahkan');
+        return redirect()->route('admin.classroom.index')->with('success', 'Kelas berhasil ditambahkan');
     }
 }

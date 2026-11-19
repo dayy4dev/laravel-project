@@ -20,7 +20,6 @@ class TeacherFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            // 10 digit NIY: numberBetween() aman sampai PHP_INT_MAX (64-bit)
             'niy' => fake()->unique()->numberBetween(1000000000, 9999999999),
             'subject_id' => Subject::factory(),
             'start_date' => fake()->date(),
